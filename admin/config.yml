@@ -1,9 +1,10 @@
-
 backend:
   name: git-gateway
   branch: main
+
 media_folder: "uploads"
 public_folder: "/uploads"
+
 collections:
   - name: "news_it"
     label: "News (Italiano)"
@@ -12,17 +13,14 @@ collections:
         label: "Elenco News IT"
         name: "news_it_file"
         fields:
-          - label: "Articoli"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Titolo", name: "title", widget: "string"}
-              - {label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-              - {label: "Autore", name: "author", widget: "string", required: false}
-              - {label: "Sommario", name: "summary", widget: "text", required: false}
-              - {label: "Link", name: "link", widget: "string", required: false}
-              - {label: "Immagine", name: "image", widget: "image", required: false}
-              - {label: "Video", name: "video", widget: "string", required: false}
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+          - { label: "Autore", name: "author", widget: "string", required: false }
+          - { label: "Sommario", name: "summary", widget: "text", required: false }
+          - { label: "Immagine", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "string", required: false }
+          - { label: "Link", name: "link", widget: "string", required: false }
+
   - name: "news_en"
     label: "News (English)"
     files:
@@ -30,14 +28,11 @@ collections:
         label: "News EN List"
         name: "news_en_file"
         fields:
-          - label: "Articles"
-            name: "items"
-            widget: "list"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-              - {label: "Author", name: "author", widget: "string", required: false}
-              - {label: "Summary", name: "summary", widget: "text", required: false}
-              - {label: "Link", name: "link", widget: "string", required: false}
-              - {label: "Image", name: "image", widget: "image", required: false}
-              - {label: "Video", name: "video", widget: "string", required: false}
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+          - { label: "Author", name: "author", widget: "string", required: false }
+          - { label: "Summary", name: "summary", widget: "text", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "string", required: false }
+          - { label: "Link", name: "link", widget: "string", required: false }
+
