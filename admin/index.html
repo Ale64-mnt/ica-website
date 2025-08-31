@@ -1,13 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - ICA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin – ICA</title>
 </head>
 <body>
   <h1>Area Amministrazione</h1>
-  <div id="app">Decap CMS qui</div>
+
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Netlify Identity: necessario per signup/reset/password -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Se c'è un token di recovery nell'hash, il widget mostrerà automaticamente il flow "imposta password".
+    if (window.netlifyIdentity) {
+      // Ricarica la pagina dopo il login così Decap carica il backend
+      window.netlifyIdentity.on('login', () => window.location.reload());
+
+      // Facoltativo: se l'utente apre /admin senza token, apri il modal di login
+      if (!window.location.hash) {
+        // window.netlifyIdentity.open('login'); // scommenta se vuoi aprirlo subito
+      }
+    }
+  </script>
 </body>
 </html>
