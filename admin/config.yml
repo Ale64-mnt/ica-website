@@ -1,12 +1,14 @@
 backend:
   name: github
-  repo: Ale64-mnt/ica-website
+  repo: Ale64-mnt/ica-website   # se è diverso, metti owner/repo corretto
   branch: main
-  base_url: https://icawebsite.netlify.app
-  auth_endpoint: api/auth
 
+# Dove il CMS salva i file caricati (immagini, ecc.)
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
+  # NEWS in Italiano (modifica una lista dentro data/news-it.json)
   - name: "news_it"
     label: "News (Italiano)"
     files:
@@ -14,14 +16,19 @@ collections:
         label: "Elenco News IT"
         name: "news_it_file"
         fields:
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-          - { label: "Autore", name: "author", widget: "string", required: false }
-          - { label: "Sommario", name: "summary", widget: "text", required: false }
-          - { label: "Immagine", name: "image", widget: "image", required: false }
-          - { label: "Video", name: "video", widget: "string", required: false }
-          - { label: "Link", name: "link", widget: "string", required: false }
+          - label: "Notizie"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Titolo",   name: "title",   widget: "string" }
+              - { label: "Data",     name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Autore",   name: "author",  widget: "string", required: false }
+              - { label: "Sommario", name: "summary", widget: "text",    required: false }
+              - { label: "Immagine", name: "image",   widget: "image",   required: false }
+              - { label: "Video",    name: "video",   widget: "string",  required: false }
+              - { label: "Link",     name: "link",    widget: "string",  required: false }
 
+  # NEWS in Inglese
   - name: "news_en"
     label: "News (English)"
     files:
@@ -29,11 +36,14 @@ collections:
         label: "News EN List"
         name: "news_en_file"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-          - { label: "Author", name: "author", widget: "string", required: false }
-          - { label: "Summary", name: "summary", widget: "text", required: false }
-          - { label: "Image", name: "image", widget: "image", required: false }
-          - { label: "Video", name: "video", widget: "string", required: false }
-          - { label: "Link", name: "link", widget: "string", required: false }
-
+          - label: "News"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title",   name: "title",   widget: "string" }
+              - { label: "Date",    name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Author",  name: "author",  widget: "string", required: false }
+              - { label: "Summary", name: "summary", widget: "text",    required: false }
+              - { label: "Image",   name: "image",   widget: "image",   required: false }
+              - { label: "Video",   name: "video",   widget: "string",  required: false }
+              - { label: "Link",    name: "link",    widget: "string",  required: false }
