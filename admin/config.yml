@@ -2,50 +2,36 @@ backend:
   name: github
   repo: Ale64-mnt/ica-website
   branch: main
-  base_url: "https://api.netlify.com"
-  auth_endpoint: "/auth?provider=github&scope=repo&site_id=TUO_API_ID"
 
-media_folder: "uploads"
-public_folder: "/uploads"
+media_folder: "uploads"       # Dove verranno salvate le immagini nel repo
+public_folder: "/uploads"     # Percorso pubblico usato dal sito
 
 collections:
-  # NEWS in Italiano
-  - name: "news_it"              # <-- univoco
-    label: "News (Italiano)"
-    files:
-      - file: "data/news-it.json"
-        label: "Elenco News IT"
-        name: "news_it_file"
-        fields:
-          - label: "Notizie"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Titolo",   name: "title",   widget: "string" }
-              - { label: "Data",     name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
-              - { label: "Autore",   name: "author",  widget: "string", required: false }
-              - { label: "Sommario", name: "summary", widget: "text",    required: false }
-              - { label: "Immagine", name: "image",   widget: "image",   required: false }
-              - { label: "Video",    name: "video",   widget: "string",  required: false }
-              - { label: "Link",     name: "link",    widget: "string",  required: false }
+  - name: "news"
+    label: "News"
+    folder: "data/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
 
-  # NEWS in Inglese
-  - name: "news_en"              # <-- univoco
-    label: "News (English)"
+  - name: "pages"
+    label: "Pagine"
     files:
-      - file: "data/news-en.json"
-        label: "News EN List"
-        name: "news_en_file"
+      - label: "Chi siamo"
+        name: "chi-siamo"
+        file: "chi-siamo.html"
         fields:
-          - label: "News"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Title",   name: "title",   widget: "string" }
-              - { label: "Date",    name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
-              - { label: "Author",  name: "author",  widget: "string", required: false }
-              - { label: "Summary", name: "summary", widget: "text",    required: false }
-              - { label: "Image",   name: "image",   widget: "image",   required: false }
-              - { label: "Video",   name: "video",   widget: "string",  required: false }
-              - { label: "Link",    name: "link",    widget: "string",  required: false }
-
+          - { label: "Contenuto", name: "body", widget: "markdown" }
+      - label: "Conoscere"
+        name: "conoscere"
+        file: "conoscere.html"
+        fields:
+          - { label: "Contenuto", name: "body", widget: "markdown" }
+      - label: "Strumenti"
+        name: "strumenti"
+        file: "strumenti.html"
+        fields:
+          - { label: "Contenuto", name: "body", widget: "markdown" }
