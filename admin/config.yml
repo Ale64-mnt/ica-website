@@ -9,7 +9,8 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "news_it"
+  # NEWS in Italiano
+  - name: "news_it"              # <-- univoco
     label: "News (Italiano)"
     files:
       - file: "data/news-it.json"
@@ -28,7 +29,8 @@ collections:
               - { label: "Video",    name: "video",   widget: "string",  required: false }
               - { label: "Link",     name: "link",    widget: "string",  required: false }
 
-  - name: "news_en"
+  # NEWS in Inglese
+  - name: "news_en"              # <-- univoco
     label: "News (English)"
     files:
       - file: "data/news-en.json"
@@ -47,22 +49,3 @@ collections:
               - { label: "Video",   name: "video",   widget: "string",  required: false }
               - { label: "Link",    name: "link",    widget: "string",  required: false }
 
-  # NEWS in Inglese
-  - name: "news_en"
-    label: "News (English)"
-    files:
-      - file: "data/news-en.json"
-        label: "News EN List"
-        name: "news_en_file"
-        fields:
-          - label: "News"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Title",   name: "title",   widget: "string" }
-              - { label: "Date",    name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
-              - { label: "Author",  name: "author",  widget: "string", required: false }
-              - { label: "Summary", name: "summary", widget: "text",    required: false }
-              - { label: "Image",   name: "image",   widget: "image",   required: false }
-              - { label: "Video",   name: "video",   widget: "string",  required: false }
-              - { label: "Link",    name: "link",    widget: "string",  required: false }
