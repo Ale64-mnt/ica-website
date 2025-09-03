@@ -5,28 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Area Amministrazione</title>
 
-    <!-- Carico Decap CMS (CDN principale) -->
-    <script src="https://cdn.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js" defer></script>
-
-    <!-- Fallback automatico: se il primo CDN non carica, uso unpkg -->
-    <script>
-      window.addEventListener('error', function(e){
-        if (e.target && e.target.tagName === 'SCRIPT' && e.target.src.includes('cdn.jsdelivr.net')) {
-          var s = document.createElement('script');
-          s.src = 'https://unpkg.com/decap-cms@3/dist/decap-cms.js';
-          document.head.appendChild(s);
-        }
-      }, true);
-    </script>
+    <!-- UNA SOLA inclusione di Decap, senza defer, senza fallback -->
+    <script src="https://unpkg.com/decap-cms@3.1.9/dist/decap-cms.js"
+            onload="window.CMS && window.CMS.init()"></script>
   </head>
-  <body>
-    <script>
-      // Avvio CMS quando la libreria è pronta
-      function startCMS(){
-        if (window.CMS) CMS.init();
-        else setTimeout(startCMS, 50);
-      }
-      startCMS();
-    </script>
-  </body>
+  <body></body>
 </html>
