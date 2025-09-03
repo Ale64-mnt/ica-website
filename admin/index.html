@@ -1,46 +1,12 @@
 <!doctype html>
 <html lang="it">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin – ICA</title>
-</head>
-<body>
-  <h1>Area Amministrazione</h1>
-
-  <!-- 1) Netlify Identity: deve venire PRIMA -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    // Inizializza e, se c'è un token nell'hash, apri automaticamente il modal
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!window.netlifyIdentity) return;
-
-      // forza l'inizializzazione
-      window.netlifyIdentity.init();
-
-      const h = (window.location.hash || '').toLowerCase();
-      const hasToken =
-        h.includes('recovery_token') ||
-        h.includes('invite_token') ||
-        h.includes('confirmation_token');
-
-      // Se non loggato e c'è un token nell'hash, apri il modal
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user && hasToken) {
-          window.netlifyIdentity.open(); // mostra il flow reset/invite
-        }
-      });
-
-      // Dopo il login ricarica la pagina così Decap vede il backend
-      window.netlifyIdentity.on('login', () => window.location.reload());
-      window.netlifyIdentity.on('signup', () => window.location.reload());
-      window.netlifyIdentity.on('password-recovery', () => {
-        // opzionale: lasciare così, il widget gestisce il flow
-      });
-    });
-  </script>
-
-  <!-- 2) Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Area Amministrazione</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>CMS.init();</script>
+  </body>
 </html>
