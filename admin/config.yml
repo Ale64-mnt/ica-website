@@ -5,8 +5,8 @@ backend:
   base_url: "https://api.netlify.com"
   auth_endpoint: "/auth?provider=github&scope=repo&site_id=a39cd5f1-fab7-4987-9f5c-d529f9165074"
 
-media_folder: "uploads"       # Dove verranno salvate le immagini nel repo
-public_folder: "/uploads"     # Percorso pubblico usato dal sito
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "news"
@@ -18,22 +18,3 @@ collections:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Corpo", name: "body", widget: "markdown" }
-
-  - name: "pages"
-    label: "Pagine"
-    files:
-      - label: "Chi siamo"
-        name: "chi-siamo"
-        file: "chi-siamo.html"
-        fields:
-          - { label: "Contenuto", name: "body", widget: "markdown" }
-      - label: "Conoscere"
-        name: "conoscere"
-        file: "conoscere.html"
-        fields:
-          - { label: "Contenuto", name: "body", widget: "markdown" }
-      - label: "Strumenti"
-        name: "strumenti"
-        file: "strumenti.html"
-        fields:
-          - { label: "Contenuto", name: "body", widget: "markdown" }
