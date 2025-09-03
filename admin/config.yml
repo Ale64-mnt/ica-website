@@ -3,14 +3,12 @@ backend:
   repo: Ale64-mnt/ica-website
   branch: main
   base_url: "https://api.netlify.com"
-  auth_endpoint: "/auth?provider=github&scope=repo&site_id=a39cd5f1-fab7-4987-9f5c-d529f9165074
+  auth_endpoint: "/auth?provider=github&scope=repo&site_id=TUO_API_ID"
 
-# Dove il CMS salva i file caricati (immagini, ecc.)
 media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  # NEWS in Italiano (modifica una lista dentro data/news-it.json)
   - name: "news_it"
     label: "News (Italiano)"
     files:
@@ -29,6 +27,25 @@ collections:
               - { label: "Immagine", name: "image",   widget: "image",   required: false }
               - { label: "Video",    name: "video",   widget: "string",  required: false }
               - { label: "Link",     name: "link",    widget: "string",  required: false }
+
+  - name: "news_en"
+    label: "News (English)"
+    files:
+      - file: "data/news-en.json"
+        label: "News EN List"
+        name: "news_en_file"
+        fields:
+          - label: "News"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title",   name: "title",   widget: "string" }
+              - { label: "Date",    name: "date",    widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Author",  name: "author",  widget: "string", required: false }
+              - { label: "Summary", name: "summary", widget: "text",    required: false }
+              - { label: "Image",   name: "image",   widget: "image",   required: false }
+              - { label: "Video",   name: "video",   widget: "string",  required: false }
+              - { label: "Link",    name: "link",    widget: "string",  required: false }
 
   # NEWS in Inglese
   - name: "news_en"
