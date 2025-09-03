@@ -1,13 +1,20 @@
 <!doctype html>
 <html lang="it">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Area Amministrazione</title>
-
-    <!-- UNA SOLA inclusione di Decap, senza defer, senza fallback -->
-    <script src="https://unpkg.com/decap-cms@3.1.9/dist/decap-cms.js"
-            onload="window.CMS && window.CMS.init()"></script>
   </head>
-  <body></body>
+  <body>
+    <script src="https://unpkg.com/decap-cms@3.1.9/dist/decap-cms.js"></script>
+    <script>
+      if (window.CMS) {
+        window.CMS.init();
+      } else {
+        var t = setInterval(function () {
+          if (window.CMS) { window.CMS.init(); clearInterval(t); }
+        }, 50);
+      }
+    </script>
+  </body>
 </html>
