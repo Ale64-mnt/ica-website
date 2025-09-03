@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: Ale64-mnt/ica-website   # se è diverso, metti owner/repo corretto
+  repo: Ale64-mnt/ica-website
   branch: main
+  base_url: "https://api.netlify.com"
+  auth_endpoint: "/auth?provider=github&scope=repo&site_id=a39cd5f1-fab7-4987-9f5c-d529f9165074
 
 # Dove il CMS salva i file caricati (immagini, ecc.)
 media_folder: "uploads"
