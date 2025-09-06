@@ -5,25 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Area Amministrazione</title>
 
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.1.9/dist/decap-cms.js"></script>
+    <!-- Decap CMS da jsDelivr (affidabile e veloce) -->
+    <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.9/dist/decap-cms.js"></script>
 
-    <!-- Netlify Identity widget -->
+    <!-- Netlify Identity widget (per login) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <style>
-      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;margin:0}
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; margin: 0; }
     </style>
   </head>
   <body>
     <script>
-      // Se Identity è presente, assicuriamoci che dopo il login si resti su /admin/
+      // Forza avvio manuale di Decap (evita dipendenza dall'auto-init del bundle)
+      window.CMS_MANUAL_INIT = true;
+      try {
+        CMS.init({
+          config: '/admin/config.yml'
+        });
+        console.log('[Decap] CMS.init chiamato');
+      } catch (e) {
+        console.error('[Decap] errore in CMS.init', e);
+      }
+
+      // Se Identity è presente, assicurati che dopo il login si resti su /admin
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
+        netlifyIdentity.on('init', (user) => {
+          console.log('[Identity] init user:', user);
+        });
+        netlifyIdentity.on('login', () => {
+          console.log('[Identity] login → reload /admin');
+          document.location.href = '/admin/';
         });
       }
     </script>
