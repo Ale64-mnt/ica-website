@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: Ale64-mnt/ica-website
+  name: git-gateway
   branch: main
-  base_url: "https://api.netlify.com"
-  auth_endpoint: "/auth?provider=github&scope=repo&site_id=a39cd5f1-fab7-4987-9f5c-d529f9165074"
 
 media_folder: "uploads"
 public_folder: "/uploads"
