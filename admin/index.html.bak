@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Area Amministrazione</title>
+  </head>
+  <body>
+    <!-- 1) Dico a Decap di NON auto-inizializzarsi -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+
+    <!-- 2) Carico UNA SOLA volta la libreria -->
+    <script src="https://unpkg.com/decap-cms@3.1.9/dist/decap-cms.js"></script>
+
+    <!-- 3) La inizializzo io una sola volta -->
+    <script>
+      if (window.CMS) {
+        window.CMS.init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => {
+          if (window.CMS) window.CMS.init();
+        });
+      }
+    </script>
+  </body>
+</html>
