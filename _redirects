@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-/admin/*                   /admin/index.html   200
-/.netlify/identity/*       200
-=======
-# Decap CMS / Netlify Identity
-/admin/config.yml      /admin/config.yml      200
-/.netlify/identity/*   200
-/admin/*               /admin/index.html      200
->>>>>>> 3870e77 (Fix: ordine ed eccezioni _redirects per Decap CMS)
+/admin/config.yml /admin/config.yml 200
+/.netlify/identity/* 200
+/admin/* /admin/index.html 200
