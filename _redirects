@@ -1,2 +1,2 @@
-# SPA rule for Decap CMS admin
-/admin/*   /admin/index.html   200
+/admin/*                   /admin/index.html   200
+/.netlify/identity/*       200
